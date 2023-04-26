@@ -1,0 +1,62 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end" *ngIf="updateId">
+      <ion-icon name="trash" (click)="deleteNote()"></ion-icon>
+    </ion-buttons>
+    <ion-title>{{updateId ? 'Edit':'Add'}} Note</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+
+  <ion-list class="p-0" color="light">
+    <ion-item color="light" lines="none">
+      <ion-input placeholder="Title" [(ngModel)]="title"></ion-input>
+    </ion-item>
+    <ion-item color="light" lines="none">
+      <ion-textarea placeholder="Note" [(ngModel)]="note" [autoGrow]="true">
+      </ion-textarea>
+    </ion-item>
+  </ion-list>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar color="light">
+    <ion-chip *ngIf="existingLabel">
+      <ion-label>{{existingLabel?.name}}</ion-label>
+      <ion-icon name="close-circle" (click)="removeLabel()"></ion-icon>
+    </ion-chip>
+    <ion-buttons slot="start">
+      <ion-button id="label-modal" *ngIf="!existingLabel">
+        <ion-icon slot="start" name="pricetag-outline"></ion-icon>
+        <ion-label>Add New Label</ion-label>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
+
+<ion-modal trigger="label-modal" *ngIf="!existingLabel">
+  <ng-template>
+    <ion-header class="ion-no-border">
+      <ion-toolbar color="light">
+        <ion-searchbar color="light" placeholder="Create or Search Label" (ionInput)="searchLabel($event)">
+        </ion-searchbar>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding" color="light">
+      <ion-list class="p-0" color="light">
+        <ion-item lines="full" color="light" *ngIf="isNewLabel" (click)="createLabel()">
+          <ion-icon slot="start" name="add-outline"></ion-icon>
+          <ion-label>Create {{searchKey}}</ion-label>
+        </ion-item>
+        <ion-item lines="full" *ngFor="let label of labels" color="light" (click)="chooseLabel(label)">
+          <ion-icon slot="start" name="pricetag-outline"></ion-icon>
+          <ion-label>{{label.name}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ng-template>
+</ion-modal>

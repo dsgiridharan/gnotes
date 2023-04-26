@@ -1,0 +1,17 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title>Labels</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-list class="p-0" color="light">
+    <ion-item lines="full" *ngFor="let label of labels" color="light">
+      <ion-icon slot="start" name="pricetag-outline"></ion-icon>
+      <ion-icon slot="end" name="trash" (click)="deleteLabel()"></ion-icon>
+      <ion-icon slot="end" name="pencil-outline" (click)="editLabel()"></ion-icon>
+      <ion-label>{{label.name}}</ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,7 @@
+{
+  "name": "gnotes",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

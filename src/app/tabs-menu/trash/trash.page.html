@@ -1,0 +1,20 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title>Trash</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-list class="p-0" color="light">
+    <ion-item detail="true" lines="full" color="light" *ngFor="let trashes of trashesList">
+      <ion-icon slot="start" name="arrow-redo-circle-outline" (click)="restoreNote()"></ion-icon>
+      <ion-label>
+        <h2>{{trashes.title}}</h2>
+        <p>{{trashes.content}}</p>
+        <ion-chip>
+          <ion-label>{{trashes.label.name}}</ion-label>
+        </ion-chip>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

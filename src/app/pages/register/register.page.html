@@ -1,0 +1,48 @@
+<ion-content [fullscreen]="true">
+  <div class="logo-div">
+    <ion-text color="primary">
+      <h4>G-Notes</h4>
+    </ion-text>
+  </div>
+</ion-content>
+
+<ion-footer class="ion-no-border">
+  <ion-toolbar>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <ion-list>
+        <ion-item lines="none">
+          <ion-input type="text" label="Name" labelPlacement="floating" errorText="Name is required"
+            formControlName="name"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-input type="email" label="Email Address" labelPlacement="floating"
+            [errorText]="form.get('email')?.hasError('email') ? 'Invalid email':'Email is required'"
+            formControlName="email"></ion-input>
+        </ion-item>
+
+        <ion-item lines="none">
+          <ion-input type="password" label="Password" labelPlacement="floating" errorText="Password is required"
+            formControlName="password"></ion-input>
+        </ion-item>
+      </ion-list>
+
+      <ion-button expand="block" type="submit" *ngIf="!showSpinnerDot">
+        Register
+      </ion-button>
+      <ion-button expand="block" *ngIf="showSpinnerDot">
+        <ion-spinner name="dots" color="light" type="button"></ion-spinner>
+      </ion-button>
+    </form>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <ion-text color="medium" class="login-label" (click)="goLogin()">
+            <p>Already have an account? <span>Back to Login</span></p>
+          </ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,27 @@
+ion-tab-bar {
+  bottom: 0px;
+  position: relative;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  width: 100%;
+  margin: 0 auto;
+  --background: var(--ion-color-primary);
+}
+
+ion-tab-button {
+  --color: var(--ion-color-light);
+  --color-selected: var(--ion-color-white);
+
+  &::before {
+    background-color: transparent;
+    display: block;
+    content: "";
+    margin: 0 auto;
+    width: 20px;
+    height: 4px;
+  }
+
+  &.tab-selected::before {
+    background-color: var(--ion-color-white);
+  }
+}

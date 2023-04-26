@@ -1,0 +1,62 @@
+/* Core CSS required for Ionic components to work properly */
+@import "@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+@import "@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/angular/css/padding.css";
+@import "@ionic/angular/css/float-elements.css";
+@import "@ionic/angular/css/text-alignment.css";
+@import "@ionic/angular/css/text-transformation.css";
+@import "@ionic/angular/css/flex-utils.css";
+
+/*--------------------------------
+  Custom header style
+----------------------------------*/
+ion-header {
+  ion-toolbar {
+    ion-title {
+      font-size: 18px;
+    }
+    ion-icon {
+      font-size: 22px;
+      margin-right: 17px;
+    }
+  }
+}
+
+/*--------------------------------
+  Custom content style
+----------------------------------*/
+ion-content {
+  --padding-start: 4%;
+  --padding-end: 4%;
+  --padding-top: 4%;
+  --padding-bottom: 4%;
+  ion-icon {
+    color: var(--ion-color-medium);
+  }
+}
+
+/*--------------------------------
+  Custom toast style
+----------------------------------*/
+ion-toast.custom-toast {
+  --background: var(--ion-color-light);
+  --box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
+  --color: var(--ion-color-primary);
+}
+ion-toast.custom-toast::part(message) {
+  font-style: italic;
+}
+
+/*--------------------------------
+  Custom Sizing
+----------------------------------*/
+.p-0 {
+  padding: 0px;
+}

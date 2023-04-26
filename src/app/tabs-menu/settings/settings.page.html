@@ -1,0 +1,16 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+  <ion-list [inset]="'true'" class="p-0" color="light">
+    <ng-container *ngFor="let task of tasks" color="light">
+      <ion-item detail="true" lines="full" (click)="action(task.action)" color="light">
+        <ion-icon slot="start" [name]="task.icon"></ion-icon>
+        <ion-label>{{task.title}}</ion-label>
+      </ion-item>
+    </ng-container>
+  </ion-list>
+</ion-content>

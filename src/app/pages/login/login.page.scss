@@ -1,0 +1,27 @@
+ion-content {
+  .logo-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    ion-text {
+      font-size: 26px;
+      font-weight: 500;
+    }
+  }
+}
+ion-footer {
+  ion-toolbar {
+    padding: 7%;
+    ion-button {
+      margin-top: 20px;
+    }
+    .register-label {
+      text-align: center;
+      span {
+        color: var(--ion-color-primary);
+        font-weight: 500;
+      }
+    }
+  }
+}

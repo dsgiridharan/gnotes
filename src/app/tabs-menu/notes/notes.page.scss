@@ -1,0 +1,16 @@
+ion-content {
+  .box {
+    border: 1px solid var(--ion-color-shade);
+    padding: 15px;
+    max-height: 200px;
+    overflow: hidden;
+    h2 {
+      margin: 0px;
+      font-size: 18px;
+    }
+    p {
+      margin: 15px 0px;
+      font-size: 15px;
+    }
+  }
+}

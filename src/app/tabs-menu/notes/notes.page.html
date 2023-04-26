@@ -1,0 +1,52 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar color="primary">
+    <ion-title>My Notes</ion-title>
+    <ion-buttons slot="end">
+      <ion-icon [name]="viewMode == 'list' ? 'list-outline':'grid-outline'" (click)="toggleViewMode(viewMode)">
+      </ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="light">
+
+  <!-- list view -->
+  <ng-container *ngIf="viewMode == 'list'">
+    <ion-list class="p-0" color="light">
+      <ion-item detail="true" lines="full" color="light" *ngFor="let note of notes" (click)="editNote(note)">
+        <ion-label>
+          <h2>{{note.title}}</h2>
+          <p>{{note.content}}</p>
+          <ion-chip *ngIf="note.label">
+            <ion-label>{{note.label.name}}</ion-label>
+          </ion-chip>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </ng-container>
+
+  <!-- grid view -->
+  <ng-container *ngIf="viewMode == 'grid'">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let note of notes" (click)="editNote(note)">
+          <div class="box">
+            <h2>{{note.title}}</h2>
+            <ion-chip *ngIf="note.label">
+              <ion-label>{{note.label.name}}</ion-label>
+            </ion-chip>
+            <p>{{note.content}}</p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-container>
+
+
+
+  <ion-fab slot="fixed" horizontal="end" vertical="bottom">
+    <ion-fab-button (click)="addNote()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
